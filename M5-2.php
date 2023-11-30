@@ -101,7 +101,7 @@
             <input type="text" name="comment" placeholder="コメント" value=<?php echo $edit_comment ?>><br>
 
             <!-- パスワード入力 -->
-            <input type="text" name="pass" placeholder="パスワード" value=<?php echo $edit_pass ?>>
+            <input type="password" name="pass" placeholder="パスワード" value=<?php echo $edit_pass ?>>
 
             <!-- 書き込み送信ボタン -->
             <input type="submit" name="submit"><br>
@@ -115,7 +115,7 @@
             <input type="number" name="delete-number" placeholder="コメント番号"><br>
 
             <!-- 削除対象のパスワード -->
-            <input type="text" name="delete-pass" placeholder="パスワード">
+            <input type="password" name="delete-pass" placeholder="パスワード">
             
             <!-- 削除対象番号の送信 -->
             <input type="submit" name="delete" placeholder="削除" value="削除"><br><br>
@@ -126,7 +126,7 @@
             <input type="number" name="edit-number" placeholder="コメント番号"><br>
 
             <!-- 編集対象のパスワード -->
-            <input type="text" name="edit-pass" placeholder="パスワード">
+            <input type="password" name="edit-pass" placeholder="パスワード">
             
             <!-- 編集対象番号の送信 -->
             <input type="submit" name="edit" placeholder="編集" value="編集"><br><br>
