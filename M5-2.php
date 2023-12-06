@@ -67,20 +67,20 @@
               $mode=$id."番目のコメントを編集中です";
 
             }elseif( empty($lines[$id-1]) ){
-              $update=$update."適切な番号を入力してください<br>";
+              $update="適切な番号を入力してください<br>";
             }elseif( empty($lines[$id-1]["pass"]) ){
-              $update=$update."編集対象にパスワードが設定されていないため編集できません<br>";
+              $update="編集できないコメントです<br>";
             }elseif( $lines[$id-1]["pass"]!=$pass ){
-              $update=$update."編集対象のパスワードと入力されたパスワードが一致しないため編集できません<br>";
+              $update="コメント番号またはパスワードが間違っています<br>";
             }
 
           }elseif( !empty($_POST["edit"]) ){
 
             if( empty($_POST["edit-number"]) ){
-              $update=$update."編集対象の番号が指定されていません<br>";
+              $update=$update."番号が入力されていません<br>";
             }
             if( empty($_POST["edit-pass"]) ){
-              $update=$update."編集対象のパスワードが指定されていません<br>";
+              $update=$update."パスワードが入力されていません<br>";
             }
 
           }
@@ -150,7 +150,7 @@
                 }else{
                   $pass="";
                 }
-                $update=$update."新規書き込みを受け付けました<br>";
+                $update="新規書き込みを受け付けました<br>";
               
                 $sql="INSERT INTO info_db (id, name, comment, date, pass) VALUES (:id, :name, :comment, :date, :pass)";
                 $stmt=$pdo->prepare($sql);
@@ -202,7 +202,7 @@
             //パスワードが設定してあり入力されたパスワードと一致するなら削除
             if( !empty($lines[$id-1]["pass"]) && $lines[$id-1]["pass"]==$pass ){
 
-              $update=$update.$id."番のコメントを削除しました<br>";
+              $update=$id."番のコメントを削除しました<br>";
 
               //対象のコメントの削除
               $sql="DELETE FROM info_db WHERE id=:id";
@@ -221,20 +221,20 @@
               }
 
             }elseif( empty($lines[$id-1]) ){
-              $update=$update."適切な番号を入力してください<br>";
+              $update="適切な番号を入力してください<br>";
             }elseif( empty($lines[$id-1]["pass"]) ){
-              $update=$update."削除対象にパスワードが設定されていないため削除できません<br>";
+              $update="削除できないコメントです<br>";
             }elseif( $lines[$id-1]["pass"]!=$pass ){
-              $update=$update."削除対象のパスワードと入力されたパスワードが一致しないため削除できません<br>";
+              $update="コメント番号またはパスワードが間違っています<br>";
             }
 
           }elseif( !empty($_POST["delete"]) ){
 
             if( empty($_POST["delete-number"]) ){
-              $update=$update."削除対象の番号が指定されていません<br>";
+              $update=$update."コメント番号が入力されていません<br>";
             }
             if( empty($_POST["delete-pass"]) ){
-              $update=$update."削除対象のパスワードが指定されていません<br>";
+              $update=$update."パスワードが入力されていません<br>";
             }
 
           }
